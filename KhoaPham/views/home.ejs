@@ -10,45 +10,19 @@
 <body>
   <div id="root"></div>
   <script type="text/babel">
-  var Car = React.createClass({
-    propTypes: {
-      carName: React.PropTypes.string,
-      manufacturer: React.PropTypes.string,
-      price: React.PropTypes.string
-    },
-    defaultProps: {
-      carName: "",
-      manufacturer: "",
-      price: ""
-    },
-    render: function() {
+    function NameCard(props) {
       return (
         <div>
-        <h1>{props.carName}</h1>
-        <p>Manufacturer: {props.manufacturer}</p>
-        <p>Price: {props.price} USD</p>
+        <h1>{props.fullName}</h1>
+        <p>Phone: {props.phone}</p>
+        <p>Email: {props.email}</p>
         </div>
-      )
+      );
     }
-  });
-
-  function NameCard(props) {
-    return (
-      <div>
-      <h1>{props.fullName}</h1>
-      <p>Phone: {props.phone}</p>
-      <p>Email: {props.email}</p>
-      </div>
+    ReactDOM.render(
+      <NameCard fullName="Duc" phone="113" email="duc@gmail.com" />,
+      document.getElementById('root')
     );
-  }
-  ReactDOM.render(
-    <NameCard fullName="Duc" phone="113" email="duc@gmail.com" />,
-    document.getElementById('root')
-  );
-  ReactDOM.render(
-    <Car carName="Honda City" manufacturer="Honda" price="10000" />,
-    document.getElementById('root')
-  );
   </script>
 </body>
 </html>
