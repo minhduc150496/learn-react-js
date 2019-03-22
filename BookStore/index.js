@@ -54,8 +54,17 @@ app.post("/getBooks", function(req, res) {
   res.send(books)
 })
 
-app.post("/delete", parser, function(req, res) {
+app.delete("/delete", parser, function(req, res) {
   const id = req.body.id;
   books.splice(id, 1);
+  res.send(books);
+})
+
+app.put("/edit", parser, function(req, res) {
+  const id = req.body.id;
+  const title = req.body.title;
+  const price = req.body.price;
+  books[id].title = title;
+  books[id].price = price;
   res.send(books);
 })
